@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import os
 import time
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
+
 # Load .env file
 load_dotenv()
 
@@ -14,10 +14,14 @@ load_dotenv()
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
 app = FastAPI()
-app.mount("/static", StaticFiles(directory="../frontend"), name="static")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://127.0.0.1:5500"],
+    allow_origins=[
+        "http://127.0.0.1:5500",
+        "http://127.0.0.1:8000",
+        "http://localhost:8000",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -30,9 +34,11 @@ class MovieRequest(BaseModel):
     mood: str
 
 
-@app.get("/")
+@app.get("/api")
 def home():
-    return FileResponse("../frontend/index.html")
+    return {
+        "message": "Welcome to MovieMatch AI Backend!"
+    }
 
 
 @app.post("/recommend")
@@ -127,3 +133,7 @@ Return only the recommendations.
     return {
         "recommendations": "The recommendation service is temporarily busy. Please try again in a minute."
     }
+
+
+# Mount static files LAST — serves frontend/index.html at "/", plus style.css, script.js, etc.
+app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")

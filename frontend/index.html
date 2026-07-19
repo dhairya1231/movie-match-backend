@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MovieMatch AI</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Landing Page -->
+
+    <section class="hero">
+
+        <h1>🎬 MovieMatch AI</h1>
+
+        <p>
+            Find your perfect movie with AI-powered personalized recommendations.
+        </p>
+
+        <button id="startBtn">
+            Get Started
+        </button>
+
+    </section>
+
+
+    <!-- Recommendation Form -->
+
+    <section class="recommendation-section" id="recommendation">
+
+        <h2>Tell us your preferences</h2>
+
+        <div class="form-container">
+
+            <label>Genre</label>
+
+            <select id="genre">
+
+                <option>Select Genre</option>
+                <option>Action</option>
+                <option>Adventure</option>
+                <option>Comedy</option>
+                <option>Drama</option>
+                <option>Horror</option>
+                <option>Romance</option>
+                <option>Sci-Fi</option>
+                <option>Thriller</option>
+
+            </select>
+
+            <label>Mood</label>
+
+            <select id="mood">
+
+                <option>Select Mood</option>
+                <option>Happy</option>
+                <option>Excited</option>
+                <option>Relaxed</option>
+                <option>Emotional</option>
+                <option>Mind-Blowing</option>
+
+            </select>
+
+            <label>Language</label>
+
+            <select id="language">
+
+                <option>Select Language</option>
+                <option>English</option>
+                <option>Hindi</option>
+                <option>Korean</option>
+                <option>Japanese</option>
+
+            </select>
+
+            <label>Favourite Movie</label>
+
+            <input
+                type="text"
+                id="favoriteMovie"
+                placeholder="Example: Interstellar">
+
+            <label>Favourite Actor (Optional)</label>
+
+            <input
+                type="text"
+                id="favoriteActor"
+                placeholder="Example: Leonardo DiCaprio">
+
+            <button id="recommendBtn">
+
+                Get Recommendations
+
+            </button>
+
+        </div>
+
+    </section>
+    <section id="resultSection" class="recommendation-section">
+
+    <h2>🎬 Your Movie Recommendations</h2>
+
+    <div id="result" class="result-box"></div>
+
+    <button id="backBtn">
+        Recommend Again
+    </button>
+
+</section>
+    <script src="/static/script.js"></script>
+
+</body>
+
+</html>
