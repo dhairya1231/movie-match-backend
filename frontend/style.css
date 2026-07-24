@@ -160,6 +160,12 @@ body {
   overflow-wrap: break-word;
   word-break: break-word;
 }
+#typedText {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  font-family: 'Poppins', sans-serif;
+}
 
 /* Each recommendation card — script.js should wrap each movie
    in <div class="movie-card"><span class="movie-num">N</span>
