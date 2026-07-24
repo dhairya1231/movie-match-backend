@@ -142,8 +142,7 @@ body {
 
 /* ---------- Results ---------- */
 
-#resultSection,
-#recommendation {
+#resultSection {
   display: none; /* toggled by script.js */
 }
 
